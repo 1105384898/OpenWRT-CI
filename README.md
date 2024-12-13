@@ -1,7 +1,7 @@
 # OpenWRT-CI
 云编译OpenWRT固件
-
-官方版：
+宝哥666
+自用官方版：
 https://github.com/immortalwrt/immortalwrt.git
 
 高通版：
