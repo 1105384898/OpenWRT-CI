@@ -30,13 +30,7 @@ jobs:
       matrix:
         SOURCE: [VIKINGYFY/immortalwrt]
         REPO_INFO:
-          - {CONFIG: IPQ60XX-WIFI-NO, BRANCH: main}
-          - {CONFIG: IPQ60XX-WIFI-YES, BRANCH: main}
-          - {CONFIG: IPQ807X-WIFI-NO, BRANCH: main}
-          - {CONFIG: IPQ807X-WIFI-YES, BRANCH: main}
           - {CONFIG: MEDIATEK, BRANCH: owrt}
-          - {CONFIG: ROCKCHIP, BRANCH: owrt}
-          - {CONFIG: X86, BRANCH: owrt}
 
     steps:
       - name: Checkout Projects
@@ -66,7 +60,7 @@ jobs:
           echo "WRT_CONFIG=${{matrix.REPO_INFO.CONFIG}}" >> $GITHUB_ENV
           echo "WRT_BRANCH=${{matrix.REPO_INFO.BRANCH}}" >> $GITHUB_ENV
           echo "WRT_REPO=https://github.com/${{matrix.SOURCE}}.git" >> $GITHUB_ENV
-          echo "WRT_VER=$(echo ${{matrix.SOURCE}} | cut -d '/' -f 2)-${{matrix.REPO_INFO.BRANCH}}.git" >> $GITHUB_ENV
+          echo "WRT_VER=$(echo ${{matrix.SOURCE}} | cut -d '/' -f 1)-${{matrix.REPO_INFO.BRANCH}}" >> $GITHUB_ENV
 
       - name: Clone Code
         run: |
@@ -109,7 +103,6 @@ jobs:
         run: |
           cd ./wrt/
 
-          make toolchain/compile -j$(nproc)
           make toolchain/install -j$(nproc)
 
       - name: Machine Information
