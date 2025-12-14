@@ -12,6 +12,8 @@ https://github.com/VIKINGYFY/immortalwrt.git
 高通版：
 https://github.com/chenxin527/uboot-ipq60xx-emmc-build
 
+https://github.com/chenxin527/uboot-ipq60xx-nor-build
+
 联发科版：
 https://drive.wrt.moe/uboot/mediatek
 
